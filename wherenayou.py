@@ -13,7 +13,7 @@ data = response['data']
 lon = data['coordinates'][0]
 lat = data['coordinates'][1]
 
-response = service.image(username="rukku", style_id='cknitcds20see17pafmuxoxvf',lon=lon, lat=lat, zoom=7.62,bearing=39, width=600, height=500)
+response = service.image(username="rukku", style_id='cknitcds20see17pafmuxoxvf',lon=lon, lat=lat, zoom=7.62,bearing=39, width=508, height=493)
 
 with open('map2.png', 'wb') as output:
     _ = output.write(response.content)
