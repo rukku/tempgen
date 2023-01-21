@@ -138,23 +138,90 @@ def get_annual_tax(ti):
 annual_tax_due = get_annual_tax(taxable_income)
 monthly_deduction_from_jan_to_nov = annual_tax_due/11
 
-st.write( f"Basic Salary: {basic_salary:,.2f} " )
-st.write( f"Total Salary: {total_basic_salary:,.2f} " )
-st.write( f"Total PERA: {total_pera:,.2f} " )
-st.write( f"RATA: {rata:,.2f} " )
-st.write( f"Clothing Allowance: {clothing_allowance:,.2f} " )
-st.write( f"Mid-Year Bonus: {basic_salary:,.2f} " )
-st.write( f"Year-End Bonus: {basic_salary:,.2f} " )
-st.write( f"PEI: {pei:,.2f} " )
-st.write( f"Cash Gift: {cash_gift:,.2f} " )
-st.write( f"SRI 2022: {sri_2022:,.2f} " )
-st.write( f"Total Compensation: {total_compensation:,.2f}")
+# st.write( f"Basic Salary: {basic_salary:,.2f} " )
+# st.write( f"Total Salary: {total_basic_salary:,.2f} " )
+# st.write( f"Total PERA: {total_pera:,.2f} " )
+# st.write( f"RATA: {rata:,.2f} " )
+# st.write( f"Clothing Allowance: {clothing_allowance:,.2f} " )
+# st.write( f"Mid-Year Bonus: {basic_salary:,.2f} " )
+# st.write( f"Year-End Bonus: {basic_salary:,.2f} " )
+# st.write( f"PEI: {pei:,.2f} " )
+# st.write( f"Cash Gift: {cash_gift:,.2f} " )
+# st.write( f"SRI 2022: {sri_2022:,.2f} " )
+# st.write( f"Total Compensation: {total_compensation:,.2f}")
 
-st.write(f"GSIS: {gsis:,.2f}")
-st.write(f"Pag-IBIG: {pagibig:,.2f}")
-st.write(f"PHIC: {phic:,.2f} ")
-st.write(f"Non-Taxable Bonus: {nontaxable_bonus:,.2f}")
-st.write(f"Total Non-Taxable Income: {total_nontaxable_income:,.2f}")
-st.write(f"Taxable Income: {taxable_income:,.2f}")
-st.write(f"Annual Tax Due: {annual_tax_due:,.2f}")
-st.write(f"Monthy Deductions from January to November: {monthly_deduction_from_jan_to_nov:,.2f}")
+# st.write(f"GSIS: {gsis:,.2f}")
+# st.write(f"Pag-IBIG: {pagibig:,.2f}")
+# st.write(f"PHIC: {phic:,.2f} ")
+# st.write(f"Non-Taxable Bonus: {nontaxable_bonus:,.2f}")
+# st.write(f"Total Non-Taxable Income: {total_nontaxable_income:,.2f}")
+# st.write(f"Taxable Income: {taxable_income:,.2f}")
+# st.write(f"Annual Tax Due: {annual_tax_due:,.2f}")
+# st.write(f"Monthy Deductions from January to November: {monthly_deduction_from_jan_to_nov:,.2f}")
+
+
+table = f'''
+
+
+
+
+# Tax Computation
+
+|  | Amount |
+| --- | ---:|
+| Total Salary | {total_basic_salary:,.2f} |
+| Total Compensation | {total_compensation:,.2f} |
+| Total Non-Taxable Income | {total_nontaxable_income:,.2f} |
+| Taxable Income | {taxable_income:,.2f} |
+| Annual Tax Due | {annual_tax_due:,.2f} |
+|      Monthly Deductions from January to November | {monthly_deduction_from_jan_to_nov:,.2f} |
+| Net Compensation | {total_compensation-annual_tax_due:,.2f} |
+
+## Compensation 
+
+| | Amount |
+| --- | ---:|
+| Basic Salary | {basic_salary:,.2f} |
+| Total Salary | {total_basic_salary:,.2f} |
+| Total PERA | {total_pera:,.2f} |
+| RATA | {rata:,.2f} |
+| Clothing Allowance | {clothing_allowance:,.2f} |
+| Mid-Year Bonus | {basic_salary:,.2f} |
+| Year-End Bonus | {basic_salary:,.2f} |
+| PEI | {pei:,.2f} |
+| Cash Gift | {cash_gift:,.2f} |
+| SRI 2022 | {sri_2022:,.2f} |
+| **Total Compensation** | **{total_compensation:,.2f}** |
+
+
+## Exemptions and Deductions
+
+### Deductions
+|  | Amount |
+| --- | ---:|
+| GSIS | {gsis:,.2f} |
+| Pag-IBIG | {pagibig:,.2f} |
+| PHIC | {phic:,.2f} |      
+
+### Deductions
+|  | Amount |
+| --- | ---:|
+| PERA | {gsis:,.2f} |
+| RATA | {rata:,.2f} |
+| Non-Taxable Bonuses | {phic:,.2f} |
+| Clothing Allowance | {clothing_allowance:,.2f} |
+| Cash Gift | {cash_gift:,.2f} |
+| Total Non-Taxable Income | {total_nontaxable_income:,.2f} |
+
+'''
+
+st.markdown(table)
+
+# with st.expander(f"Total Compensation : {total_compensation:,}"):
+#     st.markdown(table)
+
+# with st.expander(f"Taxable Income : {taxable_income:,.2f}"):
+#     st.markdown(table)
+
+# with st.expander(f"Annual Tax Due: {annual_tax_due:,.2f}"):
+#     st.markdown(table)
